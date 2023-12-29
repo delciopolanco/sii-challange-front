@@ -1,23 +1,15 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import "./i18n";
+import { Card } from "./features/Card/Card";
+import { Form } from "./features/Form/Form";
 
 function App() {
+  const handleSubmit = (data) => console.log(data);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="grid h-screen place-items-center relative">
+      <Card></Card>
+      <Form handleSubmit={handleSubmit}></Form>
     </div>
   );
 }
