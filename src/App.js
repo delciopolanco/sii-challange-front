@@ -7,7 +7,7 @@ function App() {
   const handleSubmit = (data) => console.log(data);
 
   return (
-    <div className="flex flex-col items-center justify-center h-screen gap-5">
+    <div className="grid grid-rows-1 md:grid-cols-[1fr_2fr] p-3 gap-12 mt-20">
       <Form handleSubmit={handleSubmit} />
       <List
         creditCards={[

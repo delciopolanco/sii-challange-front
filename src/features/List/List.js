@@ -1,38 +1,41 @@
 import { useTranslation } from "react-i18next";
+import { Paginator } from "components/Paginator/Paginator";
 
 export const List = ({ creditCards }) => {
   const { t } = useTranslation();
+
   return (
-    <div className="md:w-[700px] flex flex-col gap-5 p-2">
-      <h3 className="md:text-1xl underline">{t("addedCreditCards")}</h3>
-      <table className="w-full">
-        <thead className="font-semibold">
-          <td width={"40%"} className="md:text-md text-xs">
-            {t("ownerName")}
-          </td>
-          <td width={"30%"} className="md:text-md text-xs text-right">
-            {t("creditcardNumber")}
-          </td>
-          <td width={"40%"} className="md:text-md text-xs text-right">
-            {t("expirationDate")}
-          </td>
-        </thead>
-        <tbody>
-          {creditCards?.map((creditcard) => (
-            <tr className="border" key={creditcard.id}>
-              <td className="md:text-md text-xs font-semibold">
-                {creditcard.creditCardHolderName}
-              </td>
-              <td className="md:text-md text-xs text-right">
-                {creditcard.creditcardNumber}
-              </td>
-              <td className="md:text-md text-xs text-right">
-                {creditcard.creditcardExpireDate}
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+    <div className="flex flex-col rounded-xl bg-white text-gray-700 shadow-md p-2">
+      <h3 className="md:text-2xl">{t("creditCards")}</h3>
+      <div className="p-4 ">
+        {creditCards?.map((creditcard) => (
+          <div
+            className="relative border-solid border-b-2 border-neutral-100 p-4"
+            key={creditcard.id}
+          >
+            <div className="md:text-md text-xs grid grid-cols-[1fr_auto]">
+              <div className="flex flex-col gap-2">
+                <span className="font-bold text-md">
+                  {creditcard.creditCardHolderName}
+                </span>
+                <span className="font-normal">
+                  {creditcard.creditcardNumber}
+                </span>
+              </div>
+              <div className="font-bold">{creditcard.creditcardExpireDate}</div>
+            </div>
+          </div>
+        ))}
+      </div>
+      <Paginator
+        nextLbl={t("next")}
+        previousLbl={t("previous")}
+        currentPage={1}
+        onPageChange={() => {}}
+        pages={1}
+        total={1}
+        loading={false}
+      />
     </div>
   );
 };
