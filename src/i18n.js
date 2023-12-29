@@ -2,10 +2,11 @@ import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
 
 const validations = {
-  required: "requerido",
+  required: "Requerido",
   charactersMin: "El valor mínimo de carácteres es de {{count}} carácteres",
   charactersMax: "El valor máximo de carácteres es de {{count}} carácteres",
   specifyAValidExpirationDate: "Especifique una fecha de expiración válida",
+  onlyLetters: "El campo solo permite valores alfanuméricos",
 };
 
 const resources = {
@@ -14,6 +15,10 @@ const resources = {
       ...validations,
       addCard: "Agregar Tarjeta",
       cancel: "Cancelar",
+      creditcardNumber: "Número de Tarjeta",
+      expirationDate: "Fecha Vencimiento",
+      cvv: "CVV",
+      ownerName: "Nombre Titular",
     },
   },
   en: {

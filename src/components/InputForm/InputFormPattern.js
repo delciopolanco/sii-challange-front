@@ -25,7 +25,7 @@ export const InputFormPattern = ({
           mask={mask}
           format={format}
           name={name}
-          value={value}
+          value={field.value}
           type={type}
           errors={errors}
           onChange={(val) => {

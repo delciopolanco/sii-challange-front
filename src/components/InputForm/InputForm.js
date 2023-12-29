@@ -15,7 +15,7 @@ export const InputForm = ({ name, value, onChange, ...props }) => {
       render={({ field }) => (
         <Input
           name={name}
-          value={value}
+          value={field.value}
           errors={errors}
           onChange={(e) => {
             field.onChange(e.target.value);

@@ -32,7 +32,7 @@ export const InputPattern = ({
         aria-invalid="true"
         aria-describedby={`${name}-error`}
         onValueChange={handleValueChange}
-        defaultValue={value}
+        value={value || ""}
         mask={mask}
         type={type}
       />

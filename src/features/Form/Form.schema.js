@@ -5,22 +5,23 @@ export const CreditCardSchema = yup.object().shape({
   creditcardHolderName: yup
     .string()
     .nullable()
-    .required(`${i18n.t("required")}`)
-    .max(20, `${i18n.t("charactersMax", { count: 20 })}`),
+    .required(i18n.t("required"))
+    .max(20, i18n.t("charactersMax", { count: 20 }))
+    .matches(/^[A-Za-záéíóúÁÉÍÓÚñÑüÜ\s]+$/u, i18n.t("onlyLetters")),
   creditcardNumber: yup
     .string()
     .nullable()
-    .required(`${i18n.t("required")}`)
-    .min(16, `${i18n.t("charactersMin", { count: 16 })}`),
+    .required(i18n.t("required"))
+    .min(16, i18n.t("charactersMin", { count: 16 })),
   creditcardCVV: yup
     .string()
     .nullable()
-    .required(`${i18n.t("required")}`)
-    .min(3, `${i18n.t("charactersMin", { count: 3 })}`),
+    .required(i18n.t("required"))
+    .min(3, i18n.t("charactersMin", { count: 3 })),
   creditcardExpireDate: yup
     .string()
     .nullable()
-    .required(`${i18n.t("required")}`)
+    .required(i18n.t("required"))
     .test("expirateDate", i18n.t("specifyAValidExpirationDate"), (value) => {
       const pattern = /^(0[1-9]|1[0-2])\d{2}$/;
 
@@ -35,7 +36,7 @@ export const CreditCardSchema = yup.object().shape({
 
       if (
         (inputYear >= currentYear && inputMonth > currentMonth) ||
-        inputYear > currentYear
+        (inputYear > currentYear && inputYear <= currentYear + 2)
       ) {
         return true;
       }

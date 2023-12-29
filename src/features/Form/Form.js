@@ -17,38 +17,39 @@ export const Form = ({ handleSubmit }) => {
       creditcardExpireDate: "",
     },
     resolver: yupResolver(CreditCardSchema),
-    mode: "all",
   });
 
-  const onSubmit = () => {
+  const onSubmit = (e) => {
+    e.preventDefault();
     if (form.trigger() && form.formState.isValid) {
       handleSubmit(form.getValues());
     }
   };
 
-  const onCancel = () => {
-    form.clearErrors();
+  const onCancel = (e) => {
+    e.preventDefault();
+    form.reset();
   };
 
   return (
     <FormProvider {...form}>
-      <form className="border border-black bg-white p-20 grid grid-rows-2 w-full max-w-[800px] gap-14">
+      <form className="border rounded-md border-black bg-white p-20 grid grid-rows-2 w-full max-w-[800px] gap-14">
         <div className="grid grid-cols-[1fr_1fr] gap-12">
           <InputFormPattern
-            label={"Número de Tarjeta"}
+            label={t("creditcardNumber")}
             name={"creditcardNumber"}
             format={"#### #### #### ####"}
           />
           <InputFormPattern
             format="##/##"
-            label={"Fecha Vencimiento"}
+            label={t("expirationDate")}
             name={"creditcardExpireDate"}
           />
         </div>
         <div className="grid grid-cols-[1fr_1fr] gap-12">
-          <InputForm label={"Nombre Titular"} name={"creditcardHolderName"} />
+          <InputForm label={t("ownerName")} name={"creditcardHolderName"} />
           <InputFormPattern
-            label={"CVV"}
+            label={t("cvv")}
             name={"creditcardCVV"}
             type={"password"}
             format={"###"}
