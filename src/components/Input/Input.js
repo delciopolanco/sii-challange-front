@@ -14,7 +14,7 @@ export const Input = ({
         </label>
       )}
       <input
-        className="border p-1 md:p-3 rounded-lg"
+        className="border p-1 md:p-2 rounded-lg"
         type={"text"}
         placeholder={placeHolder}
         value={value}

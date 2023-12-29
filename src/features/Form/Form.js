@@ -8,7 +8,7 @@ import { CreditCardSchema } from "./Form.schema";
 import { useTranslation } from "react-i18next";
 import { Card } from "features/Card/Card";
 
-export const Form = ({ handleSubmit }) => {
+export const Form = ({ handleSubmit, className }) => {
   const { t } = useTranslation();
   const form = useForm({
     defaultValues: {
@@ -36,7 +36,7 @@ export const Form = ({ handleSubmit }) => {
     <FormProvider {...form}>
       <form className="border rounded-md border-black bg-white relative lg:p-14 p-2 md:w-[700px] w-full mt-20">
         <Card />
-        <div className="grid grid-rows-2 w-full md:gap-14 mt-10">
+        <div className="grid grid-rows-2 w-full md:gap-8 mt-16">
           <div className="grid sm:grid-cols-[1fr_1fr] md:grid-cols-[1fr_1fr]  md:gap-12">
             <InputFormPattern
               label={t("creditcardNumber")}
