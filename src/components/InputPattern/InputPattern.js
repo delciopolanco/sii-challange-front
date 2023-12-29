@@ -18,7 +18,7 @@ export const InputPattern = ({
   return (
     <div className="grid grid-rows-[min-content_min-content_min-content] gap-1">
       {label && (
-        <label htmlFor={name} className="text-xl font-bold">
+        <label htmlFor={name} className="md:text-xl text-sm font-bold">
           {label}
         </label>
       )}
@@ -27,7 +27,7 @@ export const InputPattern = ({
         format={format}
         name={name}
         id={name}
-        className="border p-3 rounded-lg"
+        className="border p-1 md:p-3 rounded-lg"
         placeholder={placeHolder}
         aria-invalid="true"
         aria-describedby={`${name}-error`}
@@ -37,7 +37,7 @@ export const InputPattern = ({
         type={type}
       />
       {errors && errors[name] && (
-        <p className="text-sm text-red">{`* ${errors[name]?.message}`}</p>
+        <p className="text-xs md:text-sm text-red">{`* ${errors[name]?.message}`}</p>
       )}
     </div>
   );

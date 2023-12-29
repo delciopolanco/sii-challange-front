@@ -6,6 +6,7 @@ import { DevTool } from "@hookform/devtools";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { CreditCardSchema } from "./Form.schema";
 import { useTranslation } from "react-i18next";
+import { Card } from "features/Card/Card";
 
 export const Form = ({ handleSubmit }) => {
   const { t } = useTranslation();
@@ -33,37 +34,40 @@ export const Form = ({ handleSubmit }) => {
 
   return (
     <FormProvider {...form}>
-      <form className="border rounded-md border-black bg-white p-20 grid grid-rows-2 w-full max-w-[800px] gap-14">
-        <div className="grid grid-cols-[1fr_1fr] gap-12">
-          <InputFormPattern
-            label={t("creditcardNumber")}
-            name={"creditcardNumber"}
-            format={"#### #### #### ####"}
-          />
-          <InputFormPattern
-            format="##/##"
-            label={t("expirationDate")}
-            name={"creditcardExpireDate"}
-          />
-        </div>
-        <div className="grid grid-cols-[1fr_1fr] gap-12">
-          <InputForm label={t("ownerName")} name={"creditcardHolderName"} />
-          <InputFormPattern
-            label={t("cvv")}
-            name={"creditcardCVV"}
-            type={"password"}
-            format={"###"}
-          />
-        </div>
-        <DevTool control={form.control} />
-        <div className="flex flex-row gap-5">
-          <Button label={t("addCard")} type={"button"} onClick={onSubmit} />
-          <Button
-            outline
-            label={t("cancel")}
-            type={"button"}
-            onClick={onCancel}
-          />
+      <form className="border rounded-md border-black bg-white relative lg:p-14 p-2 md:w-[700px] w-full mt-20">
+        <Card />
+        <div className="grid grid-rows-2 w-full md:gap-14 mt-10">
+          <div className="grid sm:grid-cols-[1fr_1fr] md:grid-cols-[1fr_1fr]  md:gap-12">
+            <InputFormPattern
+              label={t("creditcardNumber")}
+              name={"creditcardNumber"}
+              format={"#### #### #### ####"}
+            />
+            <InputFormPattern
+              format="##/##"
+              label={t("expirationDate")}
+              name={"creditcardExpireDate"}
+            />
+          </div>
+          <div className="grid sm:grid-cols-[1fr_1fr] md:grid-cols-[1fr_1fr] md:gap-12">
+            <InputForm label={t("ownerName")} name={"creditcardHolderName"} />
+            <InputFormPattern
+              label={t("cvv")}
+              name={"creditcardCVV"}
+              type={"password"}
+              format={"###"}
+            />
+          </div>
+          <DevTool control={form.control} />
+          <div className="flex flex-row gap-5 mt-5 md:mt-0">
+            <Button label={t("addCard")} type={"button"} onClick={onSubmit} />
+            <Button
+              outline
+              label={t("cancel")}
+              type={"button"}
+              onClick={onCancel}
+            />
+          </div>
         </div>
       </form>
     </FormProvider>
