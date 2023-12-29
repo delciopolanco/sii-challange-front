@@ -22,6 +22,8 @@ const resources = {
       creditCards: "Tarjetas de créditos",
       next: "Próximo",
       previous: "Anterior",
+      thereIsNoCreditCardYet:
+        "No hay tarjetas de crédito agregadas, agrega tu primera tarjeta.",
     },
   },
   en: {

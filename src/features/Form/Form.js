@@ -7,8 +7,11 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { CreditCardSchema } from "./Form.schema";
 import { useTranslation } from "react-i18next";
 import { Card } from "features/Card/Card";
+import { useSaveCreditCard } from "hooks/useCreditcard";
 
-export const Form = ({ handleSubmit, className }) => {
+export const Form = () => {
+  const { save } = useSaveCreditCard();
+
   const { t } = useTranslation();
   const form = useForm({
     defaultValues: {
@@ -20,10 +23,15 @@ export const Form = ({ handleSubmit, className }) => {
     resolver: yupResolver(CreditCardSchema),
   });
 
-  const onSubmit = (e) => {
+  const onSubmit = async (e) => {
     e.preventDefault();
     if (form.trigger() && form.formState.isValid) {
-      handleSubmit(form.getValues());
+      try {
+        await save.mutateAsync(form.getValues());
+        form.reset();
+      } catch (error) {
+        // TODO
+      }
     }
   };
 

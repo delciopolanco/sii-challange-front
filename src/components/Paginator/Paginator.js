@@ -2,7 +2,6 @@ import classNames from "classnames";
 import { useEffect, useState } from "react";
 
 export const Paginator = ({
-  total,
   currentPage,
   pages,
   onPageChange,
@@ -45,7 +44,7 @@ export const Paginator = ({
         disabled={loading}
         key={pageNumber}
         className={classNames("px-2 py-1 rounded-lg mr-2", {
-          "bg-primary-yellow text-white": page === pageNumber,
+          "bg-primary text-white": page === pageNumber,
           "hover:bg-blue-200": page !== pageNumber,
         })}
         onClick={() => setCurrentPage(pageNumber)}
