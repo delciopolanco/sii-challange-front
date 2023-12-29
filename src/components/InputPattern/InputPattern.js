@@ -18,7 +18,7 @@ export const InputPattern = ({
   return (
     <div className="grid grid-rows-[min-content_min-content_min-content] gap-1">
       {label && (
-        <label htmlFor={name} className="md:text-xl text-sm font-bold">
+        <label htmlFor={name} className="xs:text-xl text-sm font-bold">
           {label}
         </label>
       )}

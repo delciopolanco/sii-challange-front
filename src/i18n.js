@@ -19,7 +19,9 @@ const resources = {
       expirationDate: "Fecha Vencimiento",
       cvv: "CVV",
       ownerName: "Nombre Titular",
-      addedCreditCards: "Tarjetas de créditos agregadas",
+      creditCards: "Tarjetas de créditos",
+      next: "Próximo",
+      previous: "Anterior",
     },
   },
   en: {

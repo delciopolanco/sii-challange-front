@@ -34,7 +34,7 @@ export const Form = ({ handleSubmit, className }) => {
 
   return (
     <FormProvider {...form}>
-      <form className="border rounded-md border-black bg-white relative lg:p-14 p-2 md:w-[700px] w-full mt-20">
+      <form className="border rounded-md border-black bg-white relative lg:p-8 p-2 md:w-auto w-full mt-20 shadow-md">
         <Card />
         <div className="grid grid-rows-2 w-full md:gap-8 mt-16">
           <div className="grid sm:grid-cols-[1fr_1fr] md:grid-cols-[1fr_1fr]  md:gap-12">
