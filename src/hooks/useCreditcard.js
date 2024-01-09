@@ -31,13 +31,11 @@ export const useSaveCreditCard = () => {
     mutationFn: (creditcard) =>
       creditcard.id ? Put(creditcard) : Post(creditcard),
     onSuccess: (response) => {
-      if (response.code === 200) {
-        client.invalidateQueries({
-          queryKey: [queryKeys.creditcard.getAll],
-        });
-      }
+      client.invalidateQueries({
+        queryKey: [queryKeys.creditcard.getAll],
+      });
 
-      throw new Error("Response was not reached");
+      return response;
     },
   });
 

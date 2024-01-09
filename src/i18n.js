@@ -24,6 +24,9 @@ const resources = {
       previous: "Anterior",
       thereIsNoCreditCardYet:
         "No hay tarjetas de crédito agregadas, agrega tu primera tarjeta.",
+      processing: "Procesando tu solicitud...",
+      itCoulTakeSomeTimeToProcess:
+        "Esta solicitud puede tardar unos minutos, no cierres el navegador",
     },
   },
   en: {

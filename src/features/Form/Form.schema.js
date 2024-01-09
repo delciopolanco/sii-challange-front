@@ -35,8 +35,9 @@ export const CreditCardSchema = yup.object().shape({
       const inputYear = Number(value.substring(2, 4));
 
       if (
-        (inputYear >= currentYear && inputMonth > currentMonth) ||
-        (inputYear > currentYear && inputYear <= currentYear + 5)
+        ((inputYear >= currentYear && inputMonth > currentMonth) ||
+          inputYear > currentYear) &&
+        inputYear <= currentYear + 5
       ) {
         return true;
       }
